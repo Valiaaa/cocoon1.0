@@ -15,52 +15,32 @@
 
 <body>
     <div class="container">
-        <nav id="navigation" class="navigation"></nav>
-    
-        <main class="home content">
-          <div class="projects-grid">
-            
-            <!-- 项目 1 -->
-            <div class="project branding website">
-              <a href="archive/moon-bound_express/moon-bound_express.html">
-                <img src="archive/moon-bound_express/moon1.jpg" alt="Moon-Bound Express">
-              </a>
-              <h1 class="title">
-                <a href="archive/moon-bound_express/moon-bound_express.html">Moon-Bound Express</a>
-              </h1>
-            </div>
-    
-            <!-- 项目 2 -->
-            <div class="project editorial poster">
-              <a href="archive/altoona/altoona.html">
-                <img src="archive/altoona/cover.jpg" alt="Altoona">
-              </a>
-              <h1 class="title">
-                <a href="archive/altoona/altoona.html">Altoona</a>
-              </h1>
-            </div>
-    
-            <!-- 其他project类推 -->
-    
+      <nav id="navigation" class="navigation"></nav>
+  
+      <main class="home content">
+        <section class="featured-container">
+          <div class="featured-projects">
           </div>
-        </main>
-      </div>
-    
-
-    <!-- 加载navigation组件 -->
+        </section>
+  
+        <div class="projects-grid">
+        </div>
+  
+      </main>
+    </div>
+  
+    <!-- JavaScript引入 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $("#navigation").load("components/navigation.html", function(){
-                bindNavigationEvents();
-            });
+      $(document).ready(function(){
+        $("#navigation").load("components/navigation.html", function(){
+          bindNavigationEvents();
         });
+      });
     </script>
-
-    <!-- 引入导航栏的事件JS -->
+  
     <script src="scripts/navigation.js"></script>
-
-    <!-- 引入动态渲染作品内容的JS -->
-    <script src="scripts/renderProjects.js"></script>
-</body>
+    <script src="scripts/renderHome.js"></script>
+  
+  </body>    
 </html>
