@@ -15,34 +15,40 @@
 
 <body>
     <div class="container">
-        <!-- 导航栏 -->
         <nav id="navigation" class="navigation"></nav>
 
-        <!-- 主要内容 -->
         <main class="content project-content">
             <h1 id="project-title"></h1>
-            <h3 id="project-filename"></h3> <!-- 🚀 这里会自动填充 filename -->
 
-            <div class="project-info">
-                <h2>Medium:</h2> <p id="project-medium"></p>
-                <h2>Dimension:</h2> <p id="project-dimension"></p>
-                <h2>Finishing Date:</h2> <p id="project-date"></p>
-                <h2>Duration:</h2> <p id="project-duration"></p>
+            <div class="individual-container">
+                <div class="individual-info">
+                    <h3>Medium:</h3>
+                    <h3>Dimension:</h3>
+                    <h3>Finishing Date:</h3>
+                    <h3>Duration:</h3>
+                </div>
+
+                <div class="individual-info">
+                    <h3 id="project-medium"></h3>
+                    <h3 id="project-dimension"></h3>
+                    <h3 id="project-date"></h3>
+                    <h3 id="project-duration"></h3>
+                </div>
+    
+                <h3 id="project-description"></h3>
             </div>
+            <br><hr>
 
-            <h2 id="project-description"></h2>
 
-            <br><br><hr>
 
-            <!-- 这里是手动插入的图片 & 视频 -->
             <div id="project-media">
                 <div style="padding:56.25% 0 0 0;position:relative;">
                     <iframe src="https://player.vimeo.com/video/912322337?autoplay=1&loop=1&autopause=0&muted=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Second Best"></iframe>
                 </div>
                 <br>
-                <img src="1.jpg" class="pic31 no">
+                <!-- <img src="1.jpg" class="pic31 no">
                 <img src="2.jpg" class="pic32 no">
-                <img src="3.jpg" class="pic33 no">
+                <img src="3.jpg" class="pic33 no"> -->
             </div>
 
             <hr>

@@ -77,7 +77,7 @@ h1 {
   margin: 0;
 }
 
-.navigation hr {
+hr {
   border: none;
   height: var(--border-width);
   background-color: var(--main-color);
@@ -364,4 +364,15 @@ h1 {
     font-size: 18px; /* 适当调整箭头大小 */
     margin-right: 8px; /* 让箭头与文字有间距 */
     font-weight: lighter;
+}
+
+
+
+
+
+.individual-container {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr 4fr;
+    gap: var(--gap);
+    margin-top: 32px;
 }
