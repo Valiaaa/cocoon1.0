@@ -376,3 +376,7 @@ hr {
     gap: var(--gap);
     margin-top: 32px;
 }
+
+.back:hover {
+    cursor: url('../../assets/icons/pointer.png'), auto;
+}
