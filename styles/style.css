@@ -10,7 +10,7 @@
   --body-padding: 16px;
   --font-family-main: 'Inter', sans-serif;
   --font-family-secondary: 'Noto Sans Mono', monospace;
-  --pointer-cursor: url('../assets/icons/pointer.png') 15 0, auto;
+  --pointer-cursor: url('/assets/icons/pointer.png') 15 0, auto;
   --border-width: 2.5px;
   --big-font: 2.2vw;
 }
@@ -378,5 +378,5 @@ hr {
 }
 
 .back:hover {
-    cursor: url('../../assets/icons/pointer.png'), auto;
+    cursor: var(--pointer-cursor) !important;
 }
