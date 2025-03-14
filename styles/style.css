@@ -35,6 +35,22 @@ html, body {
   padding: var(--body-padding);
 }
 
+/* 🌟 添加淡入淡出动画 */
+.content {
+    transition: opacity 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+
+/* 🚀 进入 fade-out 状态 */
+.content.fade-out {
+    opacity: 0;
+    background: white;
+}
+
+/* 🚀 进入 fade-in 状态 */
+.content.fade-in {
+    opacity: 1;
+}
+
 
 
 
@@ -240,8 +256,8 @@ html, body {
 /* 正文区域grid布局（作品列表） */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
 }
 
 /* 单个项目 */
@@ -255,7 +271,7 @@ html, body {
 .project img {
   width: 100%;
   object-fit: cover;
-  aspect-ratio: 4/3; /* 统一图片比例，根据需求修改 */
+  aspect-ratio: 1/1;
   transition: box-shadow 0.3s;
   cursor: var(--pointer-cursor);
 }

@@ -1,0 +1,17 @@
+{
+    "projects": [
+      {
+        "title": "My Monthly",
+        "categories": ["branding", "website"]
+      },
+      {
+        "title": "Moon-Bound Express",
+        "categories": ["website"]
+      },
+      {
+        "title": "Altoona",
+        "categories": ["editorial", "poster"]
+      }
+    ]
+  }
+  

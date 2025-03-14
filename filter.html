@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Works</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav id="navigation" class="navigation"></nav>
+
+        <!-- 筛选作品区域 -->
+        <main class="home content">
+            <div class="projects-grid" id="filtered-projects">
+                <!-- 作品内容由 JS 生成 -->
+            </div>
+        </main>
+    </div>
+
+    <!-- 动态加载 navigation -->
+    <script>
+        $(document).ready(function(){
+            $("#navigation").load("components/navigation.html", function(){
+                bindNavigationEvents(); // 绑定筛选功能
+            });
+        });
+    </script>
+
+    <!-- 作品数据加载 -->
+    <script src="scripts/renderFilter.js"></script>
+    <script src="scripts/navigation.js"></script>
+</body>
+</html>

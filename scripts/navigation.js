@@ -1,33 +1,48 @@
 function bindNavigationEvents() {
-  $('.category input[type="checkbox"]').off('change').on('change', filterProjects);
+  // 监听 checkbox 变化
+  $('.category input[type="checkbox"]').on('change', function() {
+      const selectedCategories = $('.category input[type="checkbox"]:checked').map(function() {
+          return $(this).attr('id').replace('c', '').trim();
+      }).get();
 
-  $('#all').off('click').on('click', function(){
-    $('.category input[type="checkbox"]').prop("checked", true);
-    filterProjects();
+      // 🚀 如果没有选中的 checkbox，跳转回首页
+      if (selectedCategories.length === 0) {
+          window.location.href = "index.html";
+      } else {
+          setTimeout(() => {
+              window.location.href = `filter.html?filter=${selectedCategories.join(",")}`;
+          }, 100);
+      }
   });
 
-  $('#clear').off('click').on('click', function(){
-    $('.category input[type="checkbox"]').prop("checked", false);
-    filterProjects();
+  // “全部” 按钮
+  $('#all').on('click', function(){
+      $('.category input[type="checkbox"]').prop("checked", true);
+      const allCategories = $('.category input[type="checkbox"]').map(function() {
+          return $(this).attr('id').replace('c', '').trim();
+      }).get();
+      window.location.href = `filter.html?filter=${allCategories.join(",")}`;
+  });
+
+  // “清除” 按钮（跳转回首页）
+  $('#clear').on('click', function(){
+      $('.category input[type="checkbox"]').prop("checked", false);
+      window.location.href = "index.html";
+  });
+
+  // 🚀 确保刷新后仍然保持选中状态
+  const urlParams = new URLSearchParams(window.location.search);
+  const selectedFilters = urlParams.get("filter") ? urlParams.get("filter").split(",") : [];
+
+  $('.category input[type="checkbox"]').each(function() {
+      const category = $(this).attr('id').replace('c', '').trim();
+      $(this).prop("checked", selectedFilters.includes(category));
   });
 }
 
-function filterProjects() {
-  const categories = $('.category input[type="checkbox"]:checked').map(function(){
-    return $(this).attr('id').replace('c', '').trim();
-  }).get();
-
-  if (categories.length > 0) {
-    $('.project').hide().filter(function(){
-      return categories.some(category => $(this).hasClass(category));
-    }).show();
-  } else {
-    $('.project').show();
-  }
-}
-
+// 确保导航栏在加载后绑定事件
 $(document).ready(function(){
   $('#navigation').load('components/navigation.html', function(){
-    bindNavigationEvents();
+      bindNavigationEvents();
   });
 });
