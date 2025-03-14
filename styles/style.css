@@ -10,7 +10,7 @@
   --body-padding: 16px;
   --font-family-main: 'Inter', sans-serif;
   --font-family-secondary: 'Noto Sans Mono', monospace;
-  --pointer-cursor: url('/assets/icons/pointer.png') 15 0, auto;
+  --pointer-cursor: url('/assets/icons/pointer.cur') 15 0, auto;
   --border-width: 2.5px;
   --big-font: 2.2vw;
 }
@@ -22,7 +22,7 @@ html, body {
   font-family: var(--font-family-main);
   background-color: white;
   color: var(--main-color);
-  cursor: url('../assets/icons/default.png'), auto;
+  cursor: url('/assets/icons/default.cur'), auto;
 }
 
 *, *::before, *::after {
@@ -84,7 +84,7 @@ hr {
   margin: var(--body-padding) 0;
 }
 
-.navigation a:hover {
+.navigation a:hover, .back:hover {
   background-color: var(--main-color);
   box-shadow: 0px 0px 0 4px var(--main-color);
   color: white;
@@ -225,7 +225,6 @@ hr {
   
 .featured-project img {
     width: 100%;
-    height: 100%;
     object-fit: contain;
 }
   
@@ -251,8 +250,7 @@ hr {
     font-weight: 400;
     margin: 0;
     margin-bottom:  calc(var(--body-padding) * 3);
-}   
-
+}
 
 
 
@@ -280,7 +278,7 @@ hr {
   cursor: var(--pointer-cursor);
 }
 
-.project img:hover {
+.project img:hover, .image-group img:hover {
   box-shadow: 0 0 0 3px var(--main-color);
 }
 
@@ -290,6 +288,19 @@ hr {
   font-size: 20px;
   text-align: center;
   margin: 8px 0 0;
+}
+
+.project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-info h1.hover-effect,
+.project-info h2.hover-effect {
+    background-color: var(--main-color);
+    color: white;
+    box-shadow: 0px 0px 0 4px var(--main-color);
 }
 
 /* 响应式布局适配（小屏幕） */
@@ -375,8 +386,4 @@ hr {
     grid-template-columns: 1.2fr 2fr 4fr;
     gap: var(--gap);
     margin-top: 32px;
-}
-
-.back:hover {
-    cursor: var(--pointer-cursor) !important;
 }

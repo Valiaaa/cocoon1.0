@@ -39,6 +39,35 @@ document.addEventListener('DOMContentLoaded', function(){
         `;
         featuredContainer.insertAdjacentHTML('beforeend', html);
       });
+
+      // 🚀 添加 hover 事件，让 h1 和 h2 互相触发
+      document.querySelectorAll(".project-info").forEach(info => {
+          const h1 = info.querySelector("h1");
+          const h2 = info.querySelector("h2");
+
+          if (h1 && h2) {
+              // 当 h1 被 hover 时，h2 也跟着变化
+              h1.addEventListener("mouseenter", () => {
+                  h2.classList.add("hover-effect");
+                  h1.classList.add("hover-effect");
+              });
+              h1.addEventListener("mouseleave", () => {
+                  h2.classList.remove("hover-effect");
+                  h1.classList.remove("hover-effect");
+              });
+
+              // 当 h2 被 hover 时，h1 也跟着变化
+              h2.addEventListener("mouseenter", () => {
+                  h1.classList.add("hover-effect");
+                  h2.classList.add("hover-effect");
+              });
+              h2.addEventListener("mouseleave", () => {
+                  h1.classList.remove("hover-effect");
+                  h2.classList.remove("hover-effect");
+              });
+          }
+      });
+
     })
     .catch(err => console.error('Error loading home.json:', err));
 });
