@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Valia Liu</title>
+    <link rel="icon" href="assets/icons/icon.png">
+
+    <link rel="stylesheet" href="styles/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav id="navigation" class="navigation"></nav>
+
+        <!-- 主要内容 -->
+        <main class="content about">
+            <div class="about-container">
+                <div class="about-text">
+                    <h3>
+                        A New York-based graphic designer specializing in visual identity, typography, and front-end web development. Focused on crafting compelling brand narratives and seamless digital experiences. Currently Branding Lead @ <a href="https://www.mymonthly.io/" target="_blank">My Monthly</a>.
+                        <br><br>
+                        <a href="mailto:valialiuwork@gmail.com" target="_blank">Contact</a> for work-related inquiries. Resume and portfolio available upon request.
+                        <br><br>
+                        BFA in Graphic Design @ <a href="https://risd.gd/" target="_blank">Rhode Island School of Design</a> (2023).
+                        <ul class="social-links">
+                            <li><a href="mailto:valialiuwork@gmail.com" target="_blank">valialiuwork@gmail.com</a></li>
+                            <li><a href="https://www.instagram.com/not_valya/" target="_blank">Instagram</a></li>
+                            <li><a href="https://www.linkedin.com/in/valialiu/" target="_blank">Linkedin</a></li>
+                        </ul>
+                    </h3>
+                </div>
+                <div class="about-image">
+                    <img src="assets/images/portrait.jpg" alt="Valia Liu">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#navigation").load("components/navigation.html");
+        });
+    </script>
+</body>
+</html>
