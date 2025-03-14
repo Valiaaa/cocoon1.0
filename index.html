@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Valia Liu</title>
+    <link rel="icon" href="assets/icons/icon.png">
+
+    <link rel="stylesheet" href="styles/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <nav id="navigation" class="navigation"></nav>
+    
+        <main class="home content">
+          <div class="projects-grid">
+            
+            <!-- 项目 1 -->
+            <div class="project branding website">
+              <a href="archive/moon-bound_express/moon-bound_express.html">
+                <img src="archive/moon-bound_express/moon1.jpg" alt="Moon-Bound Express">
+              </a>
+              <h1 class="title">
+                <a href="archive/moon-bound_express/moon-bound_express.html">Moon-Bound Express</a>
+              </h1>
+            </div>
+    
+            <!-- 项目 2 -->
+            <div class="project editorial poster">
+              <a href="archive/altoona/altoona.html">
+                <img src="archive/altoona/cover.jpg" alt="Altoona">
+              </a>
+              <h1 class="title">
+                <a href="archive/altoona/altoona.html">Altoona</a>
+              </h1>
+            </div>
+    
+            <!-- 其他project类推 -->
+    
+          </div>
+        </main>
+      </div>
+    
+
+    <!-- 加载navigation组件 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#navigation").load("components/navigation.html", function(){
+                bindNavigationEvents();
+            });
+        });
+    </script>
+
+    <!-- 引入导航栏的事件JS -->
+    <script src="scripts/navigation.js"></script>
+
+    <!-- 引入动态渲染作品内容的JS -->
+    <script src="scripts/renderProjects.js"></script>
+</body>
+</html>

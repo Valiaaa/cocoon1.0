@@ -1,0 +1,210 @@
+/* CSS变量统一管理: variables.css（确保你已有） */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+
+:root {
+  --main-color: cornflowerblue;
+  --secondary-color: rgb(62, 114, 212);
+  --gap: 24px;
+  --body-padding: 16px;
+  --font-family-main: 'Inter', sans-serif;
+  --font-family-secondary: 'Noto Sans Mono', monospace;
+  --pointer-cursor: url('../assets/icons/pointer.png') 15 0, auto;
+  --border-width: 2.5px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-main);
+  background-color: white;
+  color: var(--main-color);
+  cursor: url('../assets/icons/default.png'), auto;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  gap: var(--gap);
+  padding: var(--body-padding);
+}
+
+
+
+
+
+.navigation {
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+}
+
+.navigation h1 {
+  font-size: 2.4vw;
+  line-height: 100%;
+  font-weight: 300;
+  color: var(--main-color);
+  margin: 0;
+}
+
+.navigation hr {
+  border: none;
+  height: var(--border-width);
+  background-color: var(--main-color);
+  margin: var(--body-padding) 0;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: var(--main-color);
+  cursor: var(--pointer-cursor);
+}
+
+.navigation a:hover {
+  background-color: var(--main-color);
+  box-shadow: 0px 0px 0 4px var(--main-color);
+  color: white;
+}
+
+
+
+
+
+.category {
+  font-family: var(--font-family-secondary);
+  font-size: 16px;
+  color: var(--main-color);
+  margin-left: 16%;
+}
+
+.category input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--main-color);
+  cursor: var(--pointer-cursor);
+  vertical-align: middle;
+  position: relative;
+}
+
+.category label {
+    margin-left: 6px;
+    cursor: var(--pointer-cursor);
+  }
+
+.category input[type="checkbox"]::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  display: block;
+  transform: scale(0);
+  background: var(--main-color);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transition: transform 0.2s ease-in-out;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 12px;
+  margin-left: 16%;
+  margin-top: var(--body-padding);
+}
+
+.filter-controls button {
+  font-family: var(--font-family-secondary);
+  font-weight: bolder;
+  padding: 2.5px 12px;
+  border: 2px solid var(--main-color);
+  background: transparent;
+  color: var(--main-color);
+  cursor: var(--pointer-cursor);
+  transition: 0.3s;
+}
+
+.filter-controls button:hover {
+  background-color: var(--main-color);
+  color: white;
+}
+
+
+
+
+
+/* 正文区域grid布局（作品列表） */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* 单个项目 */
+.project {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 4/3; /* 统一图片比例，根据需求修改 */
+  transition: box-shadow 0.3s;
+  cursor: var(--pointer-cursor);
+}
+
+.project img:hover {
+  box-shadow: 0 0 0 3px var(--main-color);
+}
+
+.project h1 {
+  font-family: var(--font-family-main);
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+  margin: 8px 0 0;
+}
+
+.project a {
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+/* 响应式布局适配（小屏幕） */
+@media screen and (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr; /* 上下布局 */
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .navigation {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-color);
+}
