@@ -295,25 +295,6 @@ hr {
     box-shadow: 0px 0px 0 4px var(--main-color);
 }
 
-/* 响应式布局适配（小屏幕） */
-@media screen and (max-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr; /* 上下布局 */
-    padding: 16px;
-    gap: 16px;
-  }
-
-  .navigation {
-    position: relative;
-    width: 100%;
-    height: auto;
-  }
-
-  .projects-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-}
-
 /* 自定义滚动条 */
 ::-webkit-scrollbar {
   width: 12px;
@@ -417,22 +398,47 @@ hr {
         outline: none;
     }
 
-    /* 确保内容不会被固定的 mobile-nav 遮挡 */
-    .content {
-        padding-top: 70px; /* 让页面内容不被导航栏盖住 */
-    }
-
     .container { 
         grid-template-columns: 100%; /* 让整个网格结构变成单列 */
     }
 
+    #navigation {
+        position: absolute;
+        z-index: 5;
+        width: 76%;
+        height: calc(100vh - var(--body-padding));
+        background-color: white;
+        border-right: var(--border-width) solid var(--main-color);
+        left: -80%;
+        transition: 0.4s;
+    }
+
+    .expanded{
+        left: var(--body-padding) !important;
+        transition: 0.4s;
+    }
+
+    .hamburger-menu {
+        transition: transform 0.3s ease;
+    }
+    
+    .hamburger-menu.expanded {
+        transform: rotate(-90deg); /* 逆时针旋转 90° */
+    }
+    
+    .hamburger-menu:not(.expanded) {
+        transform: rotate(0deg); /* 回到初始位置 */
+    }
+    
+
     .navigation {
-        display: none;
+        width: calc(76% - var(--body-padding));
     }
 
     .content {
         grid-column: 1 / -1; /* 让右侧内容填满整个屏幕 */
         width: 100%;
+        padding-top: 70px;
     }
 
     h1 {

@@ -61,3 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("❌ Navigation container not found!");
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector(".hamburger-menu").addEventListener("click", function () {
+        this.classList.toggle("expanded");
+        document.getElementById("navigation").classList.toggle("expanded");
+    });
+});
