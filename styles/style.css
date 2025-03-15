@@ -398,7 +398,7 @@ hr {
         outline: none;
     }
 
-    .container { 
+    .container, .about-container { 
         grid-template-columns: 100%; /* 让整个网格结构变成单列 */
     }
 
@@ -445,6 +445,10 @@ hr {
         font-size: 6vw;
     }
 
+    h3 {
+        font-size: 14px;
+    }
+
     .project-info h2 {
         font-size: 12px;
         margin-bottom: calc(var(--body-padding)* 2);
@@ -453,5 +457,13 @@ hr {
 
     .project-info {
         padding-top: calc(var(--body-padding)* 1.6);
+    }
+
+    .about-image img {
+        max-width: 60%;
+    }
+
+    .about-image {
+        justify-content: flex-end;
     }
 }
