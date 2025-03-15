@@ -38,11 +38,11 @@
   
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-      $(document).ready(function(){
-        $("#navigation").load("/components/navigation.html", function(){
-          bindNavigationEvents();
+        $(document).ready(function(){
+            $("#navigation").load(baseURL + "components/navigation.html", function(){
+                bindNavigationEvents(); // 确保事件绑定
+            });
         });
-      });
     </script>
   
     <script src="scripts/navigation.js"></script>

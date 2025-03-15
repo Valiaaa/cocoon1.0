@@ -1,3 +1,12 @@
+// 自动检测 GitHub Pages 还是本地环境
+const isGitHubPages = window.location.hostname === "valiaaa.github.io";
+const baseURL = isGitHubPages ? "/cocoon1.0/" : "/"; // GitHub 用 `/cocoon1.0/`，本地用 `/`
+
+function navigateTo(page) {
+    window.location.href = baseURL + page.replace(/^\/+/, "");
+}
+
+// 绑定 filter 事件
 function bindNavigationEvents() {
     console.log("✅ Binding navigation events...");
 
@@ -13,10 +22,10 @@ function bindNavigationEvents() {
 
             if (selectedCategories.length === 0) {
                 console.log("🚀 No filters selected, returning to home.");
-                window.location.href = "/index.html"; // ✅ 绝对路径，确保正确返回首页
+                navigateTo("index.html");
             } else {
                 console.log("🚀 Filters selected:", selectedCategories);
-                window.location.href = `/filter.html?filter=${selectedCategories.join(",")}`; // ✅ 绝对路径，确保在所有页面都正确跳转
+                navigateTo(`filter.html?filter=${selectedCategories.join(",")}`);
             }
         });
     });
@@ -26,7 +35,7 @@ function bindNavigationEvents() {
             checkboxes.forEach(cb => cb.checked = true);
             const allCategories = Array.from(checkboxes).map(cb => cb.id.replace('c', '').trim());
             console.log("🚀 All categories selected:", allCategories);
-            window.location.href = `/filter.html?filter=${allCategories.join(",")}`;
+            navigateTo(`filter.html?filter=${allCategories.join(",")}`);
         });
     }
 
@@ -34,9 +43,10 @@ function bindNavigationEvents() {
         clearButton.addEventListener("click", function () {
             checkboxes.forEach(cb => cb.checked = false);
             console.log("🚀 Clear button clicked, returning to home.");
-            window.location.href = "/index.html"; // ✅ 确保清空后跳回首页
+            navigateTo("index.html");
         });
     }
+
 
     // 🚀 确保刷新后仍然保持选中状态
     const urlParams = new URLSearchParams(window.location.search);
@@ -67,25 +77,4 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.toggle("expanded");
         document.getElementById("navigation").classList.toggle("expanded");
     });
-});
-
-
-
-// 自动检测运行环境
-const isGitHubPages = window.location.hostname === "valiaaa.github.io";
-const baseURL = isGitHubPages ? "/cocoon1.0/" : "/"; // GitHub 用 `/cocoon1.0/`，本地用 `/`
-
-// 修正所有 <a> 标签的路径
-document.querySelectorAll("a").forEach(link => {
-    if (link.getAttribute("href") && !link.href.startsWith("http")) {
-        link.href = baseURL + link.getAttribute("href").replace(/^\/+/, "");
-    }
-});
-
-// 修正所有图片、CSS、JS 路径
-document.querySelectorAll("img, link[rel='stylesheet'], script").forEach(el => {
-    const srcAttr = el.tagName === "SCRIPT" ? "src" : "href";
-    if (el.getAttribute(srcAttr) && !el[srcAttr].startsWith("http")) {
-        el[srcAttr] = baseURL + el.getAttribute(srcAttr).replace(/^\/+/, "");
-    }
 });
