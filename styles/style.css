@@ -147,7 +147,7 @@ hr {
 
 .filter-controls button {
   font-family: var(--font-family-secondary);
-  font-weight: bolder;
+  font-weight: bold;
   padding: 2.5px 12px;
   border: 2px solid var(--main-color);
   background: transparent;
