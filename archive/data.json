@@ -3,11 +3,13 @@
       {
         "title": "My Monthly",
         "filename": "my_monthly",
+        "video": "https://player.vimeo.com/video/912322337?autoplay=1&loop=1&autopause=0&muted=1",
         "categories": ["branding"],
         "medium": "Visual Identity",
         "dimension": "1920px × 1080px",
         "date": "2024.2",
         "collaborator": ["My Monthly Team"],
+        "feature": true,
         "description": "In collaboration with <a href='https://shanshanw.art/' target='_blank'>Shanshan</a>, we crafted a product trailer animation for the couple calendar app <a href='https://www.mymonthly.io/' target='_blank'>My Monthly</a>, showcasing its key features and brand ethos. Our collaboration involved conceptualizing the initial script, storyboarding, creating illustrations, and bringing the animation to life.<br><br>Subsequently, I independently crafted a 15-second motion reel to promote the upcoming release of the app. This reel was then showcased at Times Square."
       },
       {
@@ -18,6 +20,7 @@
         "dimension": "1920px × 1080px",
         "date": "2024.2",
         "collaborator": "My Monthly Team",
+        "feature": false,
         "description": "In collaboration with <a href='https://shanshanw.art/' target='_blank'>Shanshan</a>, we crafted a product trailer animation for the couple calendar app <a href='https://www.mymonthly.io/' target='_blank'>My Monthly</a>, showcasing its key features and brand ethos. Our collaboration involved conceptualizing the initial script, storyboarding, creating illustrations, and bringing the animation to life.<br><br>Subsequently, I independently crafted a 15-second motion reel to promote the upcoming release of the app. This reel was then showcased at Times Square."
       }
     ]

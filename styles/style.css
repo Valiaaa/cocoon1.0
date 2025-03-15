@@ -4,8 +4,6 @@
 
 :root {
   --main-color: cornflowerblue;
-  --secondary-color: rgb(62, 114, 212);
-  --brown: #897457;
   --gap: 24px;
   --body-padding: 16px;
   --font-family-main: 'Inter', sans-serif;
