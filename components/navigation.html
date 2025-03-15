@@ -1,5 +1,5 @@
 <nav class="navigation">
-    <h1><a href="/index.html">Valia Liu</a></h1>
+    <h1><a id="home-link">Valia Liu</a></h1>
     <hr>
     <div class="category">
         <label><input type="checkbox" id="brandingc"> Branding</label>
@@ -16,7 +16,7 @@
     </div>
     <hr>
     <h1>
-        <a href="/about.html">About</a><br>
+        <a id="about-link">About</a><br>
         <a href="mailto:valialiuwork@gmail.com">Email↗</a>
     </h1>
 
@@ -24,3 +24,13 @@
         © Valia Liu 2025
     </footer>
 </nav>
+
+<script>
+    // 自动检测 GitHub Pages 还是本地环境
+    const isGitHubPages = window.location.hostname === "valiaaa.github.io";
+    const baseURL = isGitHubPages ? "/cocoon1.0/" : "/";
+
+    // 修正导航链接路径
+    document.getElementById("home-link").setAttribute("href", baseURL + "index.html");
+    document.getElementById("about-link").setAttribute("href", baseURL + "about.html");
+</script>
