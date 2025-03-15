@@ -403,7 +403,7 @@ hr {
     }
 
     #navigation {
-        position: absolute;
+        position: fixed;
         z-index: 5;
         width: 76%;
         height: calc(100vh - var(--body-padding));
@@ -458,6 +458,14 @@ hr {
     .project-info {
         padding-top: calc(var(--body-padding)* 1.6);
     }
+
+    .individual-container {
+        grid-template-columns: 3fr 5fr;
+    }
+
+        .individual-container > :nth-child(3) {
+            grid-column: 1 / -1; /* 让第三个元素独占整行 */
+        }
 
     .about-image img {
         max-width: 60%;
