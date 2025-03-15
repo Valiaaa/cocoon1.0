@@ -1,48 +1,63 @@
 function bindNavigationEvents() {
-  // 监听 checkbox 变化
-  $('.category input[type="checkbox"]').on('change', function() {
-      const selectedCategories = $('.category input[type="checkbox"]:checked').map(function() {
-          return $(this).attr('id').replace('c', '').trim();
-      }).get();
+    console.log("✅ Binding navigation events...");
 
-      // 🚀 如果没有选中的 checkbox，跳转回首页
-      if (selectedCategories.length === 0) {
-          window.location.href = "index.html";
-      } else {
-          setTimeout(() => {
-              window.location.href = `filter.html?filter=${selectedCategories.join(",")}`;
-          }, 100);
-      }
-  });
+    const checkboxes = document.querySelectorAll(".category input[type='checkbox']");
+    const allButton = document.getElementById("all");
+    const clearButton = document.getElementById("clear");
 
-  // “全部” 按钮
-  $('#all').on('click', function(){
-      $('.category input[type="checkbox"]').prop("checked", true);
-      const allCategories = $('.category input[type="checkbox"]').map(function() {
-          return $(this).attr('id').replace('c', '').trim();
-      }).get();
-      window.location.href = `filter.html?filter=${allCategories.join(",")}`;
-  });
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", function () {
+            const selectedCategories = Array.from(checkboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.id.replace('c', '').trim());
 
-  // “清除” 按钮（跳转回首页）
-  $('#clear').on('click', function(){
-      $('.category input[type="checkbox"]').prop("checked", false);
-      window.location.href = "index.html";
-  });
+            if (selectedCategories.length === 0) {
+                console.log("🚀 No filters selected, returning to home.");
+                window.location.href = "/index.html"; // ✅ 绝对路径，确保正确返回首页
+            } else {
+                console.log("🚀 Filters selected:", selectedCategories);
+                window.location.href = `/filter.html?filter=${selectedCategories.join(",")}`; // ✅ 绝对路径，确保在所有页面都正确跳转
+            }
+        });
+    });
 
-  // 🚀 确保刷新后仍然保持选中状态
-  const urlParams = new URLSearchParams(window.location.search);
-  const selectedFilters = urlParams.get("filter") ? urlParams.get("filter").split(",") : [];
+    if (allButton) {
+        allButton.addEventListener("click", function () {
+            checkboxes.forEach(cb => cb.checked = true);
+            const allCategories = Array.from(checkboxes).map(cb => cb.id.replace('c', '').trim());
+            console.log("🚀 All categories selected:", allCategories);
+            window.location.href = `/filter.html?filter=${allCategories.join(",")}`;
+        });
+    }
 
-  $('.category input[type="checkbox"]').each(function() {
-      const category = $(this).attr('id').replace('c', '').trim();
-      $(this).prop("checked", selectedFilters.includes(category));
-  });
+    if (clearButton) {
+        clearButton.addEventListener("click", function () {
+            checkboxes.forEach(cb => cb.checked = false);
+            console.log("🚀 Clear button clicked, returning to home.");
+            window.location.href = "/index.html"; // ✅ 确保清空后跳回首页
+        });
+    }
+
+    // 🚀 确保刷新后仍然保持选中状态
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedFilters = urlParams.get("filter") ? urlParams.get("filter").split(",") : [];
+
+    checkboxes.forEach(cb => {
+        const category = cb.id.replace('c', '').trim();
+        cb.checked = selectedFilters.includes(category);
+    });
 }
 
-// 确保导航栏在加载后绑定事件
-$(document).ready(function(){
-  $('#navigation').load('components/navigation.html', function(){
-      bindNavigationEvents();
-  });
+// 🚀 **确保在 `navigation.html` 加载完成后绑定事件**
+document.addEventListener("DOMContentLoaded", function () {
+    const navContainer = document.getElementById("navigation");
+
+    if (navContainer) {
+        $("#navigation").load("components/navigation.html", function() {
+            console.log("✅ Navigation loaded.");
+            bindNavigationEvents();
+        });
+    } else {
+        console.error("❌ Navigation container not found!");
+    }
 });

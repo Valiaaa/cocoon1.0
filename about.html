@@ -44,10 +44,15 @@
         </main>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function(){
-            $("#navigation").load("components/navigation.html");
+      $(document).ready(function(){
+        $("#navigation").load("/components/navigation.html", function(){
+          bindNavigationEvents();
         });
+      });
     </script>
+  
+    <script src="scripts/navigation.js"></script>
 </body>
 </html>

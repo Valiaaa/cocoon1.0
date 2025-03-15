@@ -58,12 +58,17 @@
         </main>
     </div>
 
-    <!-- 加载项目信息 -->
-    <script src="../../scripts/loadProject.js"></script>
     <script>
         $(document).ready(function(){
-            $("#navigation").load("../../components/navigation.html");
+          $("#navigation").load("/components/navigation.html", function(){
+            console.log("Navigation loaded!");
+            bindNavigationEvents(); // 🚀 现在事件监听是在 navigation 加载完后执行的
+          });
         });
-    </script>
+      </script>      
+  
+    <script src="/scripts/navigation.js"></script>
+    <script src="/scripts/loadProject.js"></script>
+
 </body>
 </html>
