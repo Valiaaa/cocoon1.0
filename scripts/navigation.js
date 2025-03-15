@@ -68,3 +68,24 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("navigation").classList.toggle("expanded");
     });
 });
+
+
+
+// 自动检测运行环境
+const isGitHubPages = window.location.hostname === "valiaaa.github.io";
+const baseURL = isGitHubPages ? "/cocoon1.0/" : "/"; // GitHub 用 `/cocoon1.0/`，本地用 `/`
+
+// 修正所有 <a> 标签的路径
+document.querySelectorAll("a").forEach(link => {
+    if (link.getAttribute("href") && !link.href.startsWith("http")) {
+        link.href = baseURL + link.getAttribute("href").replace(/^\/+/, "");
+    }
+});
+
+// 修正所有图片、CSS、JS 路径
+document.querySelectorAll("img, link[rel='stylesheet'], script").forEach(el => {
+    const srcAttr = el.tagName === "SCRIPT" ? "src" : "href";
+    if (el.getAttribute(srcAttr) && !el[srcAttr].startsWith("http")) {
+        el[srcAttr] = baseURL + el.getAttribute(srcAttr).replace(/^\/+/, "");
+    }
+});
