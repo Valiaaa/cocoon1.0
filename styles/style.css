@@ -236,12 +236,6 @@ hr {
     border-bottom: var(--border-width) solid var(--main-color);
 }
   
-.project-info h1 {
-    font-size: var(--big-font);
-    font-weight: 300;
-    margin: 0;
-}
-  
 .project-info h2 {
     font-family: var(--font-family-secondary);
     font-size: 16px;
@@ -384,4 +378,74 @@ hr {
     grid-template-columns: 1.2fr 2fr 4fr;
     gap: var(--gap);
     margin-top: 32px;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) { 
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 16px;
+        z-index: 1000;
+    }
+
+    .hamburger-menu {
+        font-size: 24px;
+        background: transparent;
+        border: none;
+        color: var(--main-color);
+        cursor: pointer;
+        outline: none;
+    }
+
+    /* 确保内容不会被固定的 mobile-nav 遮挡 */
+    .content {
+        padding-top: 70px; /* 让页面内容不被导航栏盖住 */
+    }
+
+    .container { 
+        grid-template-columns: 100%; /* 让整个网格结构变成单列 */
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .content {
+        grid-column: 1 / -1; /* 让右侧内容填满整个屏幕 */
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 6vw;
+    }
+
+    .project-info h2 {
+        font-size: 12px;
+        margin-bottom: calc(var(--body-padding)* 2);
+        margin-top: 2px;
+    }
+
+    .project-info {
+        padding-top: calc(var(--body-padding)* 1.6);
+    }
 }
