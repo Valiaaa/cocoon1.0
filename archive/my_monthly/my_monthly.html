@@ -15,7 +15,7 @@
 
 <body>
     <div class="mobile-nav">
-        <h1 class="mobile-title"><a href="/index.html">Valia Liu</a></h1>
+        <h1 class="mobile-title"><a href="../../index.html">Valia Liu</a></h1>
         <button class="hamburger-menu">
             ☰
         </button>
@@ -67,15 +67,15 @@
 
     <script>
         $(document).ready(function(){
-          $("#navigation").load("/components/navigation.html", function(){
+          $("#navigation").load("../components/navigation.html", function(){
             console.log("Navigation loaded!");
             bindNavigationEvents(); // 🚀 现在事件监听是在 navigation 加载完后执行的
           });
         });
       </script>      
   
-    <script src="/scripts/navigation.js"></script>
-    <script src="/scripts/loadProject.js"></script>
+  <script src="../../scripts/navigation.js"></script>
+  <script src="../../scripts/loadProject.js"></script>
 
 </body>
 </html>

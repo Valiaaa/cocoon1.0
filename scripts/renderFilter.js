@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('archive/data.json')
+    fetch(basePath + "../archive/data.json")
     .then(response => response.json())
     .then(data => {
         const projectContainer = document.getElementById('filtered-projects');

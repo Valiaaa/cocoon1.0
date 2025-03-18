@@ -15,7 +15,7 @@
 
 <body>
     <div class="mobile-nav">
-        <h1 class="mobile-title"><a href="/index.html">Valia Liu</a></h1>
+        <h1 class="mobile-title"><a href="index.html">Valia Liu</a></h1>
         <button class="hamburger-menu">
             ☰
         </button>
@@ -54,7 +54,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $(document).ready(function(){
-        $("#navigation").load("/components/navigation.html", function(){
+        $("#navigation").load(basePath + "../components/navigation.html", function(){
           bindNavigationEvents();
         });
       });

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const filename = window.location.pathname.split("/").pop().split("?")[0].replace(".html", "");
 
-    fetch('../data.json')
+    fetch(basePath + "../archive/data.json")
         .then(response => response.json())
         .then(data => {
             const project = data.projects.find(p => p.filename === filename);

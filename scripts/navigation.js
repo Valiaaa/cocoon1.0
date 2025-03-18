@@ -13,10 +13,10 @@ function bindNavigationEvents() {
 
             if (selectedCategories.length === 0) {
                 console.log("🚀 No filters selected, returning to home.");
-                window.location.href = "/index.html"; // ✅ 绝对路径，确保正确返回首页
+                window.location.href = basePath + "../index.html";
             } else {
                 console.log("🚀 Filters selected:", selectedCategories);
-                window.location.href = `/filter.html?filter=${selectedCategories.join(",")}`; // ✅ 绝对路径，确保在所有页面都正确跳转
+                window.location.href = basePath + "../filter.html?filter=" + selectedCategories.join(",");
             }
         });
     });
@@ -26,7 +26,7 @@ function bindNavigationEvents() {
             checkboxes.forEach(cb => cb.checked = true);
             const allCategories = Array.from(checkboxes).map(cb => cb.id.replace('c', '').trim());
             console.log("🚀 All categories selected:", allCategories);
-            window.location.href = `/filter.html?filter=${allCategories.join(",")}`;
+            window.location.href = basePath + "../filter.html?filter=" + selectedCategories.join(",");
         });
     }
 
@@ -34,7 +34,7 @@ function bindNavigationEvents() {
         clearButton.addEventListener("click", function () {
             checkboxes.forEach(cb => cb.checked = false);
             console.log("🚀 Clear button clicked, returning to home.");
-            window.location.href = "/index.html"; // ✅ 确保清空后跳回首页
+            window.location.href = basePath + "../index.html";
         });
     }
 
@@ -48,13 +48,25 @@ function bindNavigationEvents() {
     });
 }
 
-// 🚀 **确保在 `navigation.html` 加载完成后绑定事件**
+// 🛠 动态获取当前 JS 文件的路径
+function getScriptBasePath() {
+    let scriptSrc = document.currentScript ? document.currentScript.src : "";
+    return scriptSrc.substring(0, scriptSrc.lastIndexOf("/") + 1); // 计算 JS 目录
+}
+
+const basePath = getScriptBasePath();
+console.log("📂 Detected JS Base Path:", basePath);
+
+// 🛠 确保 `navigation.html` 的路径正确
+const navigationHTMLPath = basePath + "../components/navigation.html"; 
+
+// 🚀 **确保 `navigation.html` 加载完成后绑定事件**
 document.addEventListener("DOMContentLoaded", function () {
     const navContainer = document.getElementById("navigation");
 
     if (navContainer) {
-        $("#navigation").load("components/navigation.html", function() {
-            console.log("✅ Navigation loaded.");
+        $(navContainer).load(navigationHTMLPath, function() {
+            console.log("✅ Navigation loaded from:", navigationHTMLPath);
             bindNavigationEvents();
         });
     } else {
@@ -62,6 +74,57 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+// 🚀 绑定导航交互事件（保持原代码不变）
+function bindNavigationEvents() {
+    console.log("✅ Binding navigation events...");
+
+    const checkboxes = document.querySelectorAll(".category input[type='checkbox']");
+    const allButton = document.getElementById("all");
+    const clearButton = document.getElementById("clear");
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", function () {
+            const selectedCategories = Array.from(checkboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.id.replace('c', '').trim());
+
+            if (selectedCategories.length === 0) {
+                console.log("🚀 No filters selected, returning to home.");
+                window.location.href = basePath + "../index.html";
+            } else {
+                console.log("🚀 Filters selected:", selectedCategories);
+                window.location.href = basePath + "../filter.html?filter=" + selectedCategories.join(",");
+            }
+        });
+    });
+
+    if (allButton) {
+        allButton.addEventListener("click", function () {
+            checkboxes.forEach(cb => cb.checked = true);
+            const allCategories = Array.from(checkboxes).map(cb => cb.id.replace('c', '').trim());
+            console.log("🚀 All categories selected:", allCategories);
+            window.location.href = basePath + "../filter.html?filter=" + selectedCategories.join(",");
+        });
+    }
+
+    if (clearButton) {
+        clearButton.addEventListener("click", function () {
+            checkboxes.forEach(cb => cb.checked = false);
+            console.log("🚀 Clear button clicked, returning to home.");
+            window.location.href = basePath + "../index.html";
+        });
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedFilters = urlParams.get("filter") ? urlParams.get("filter").split(",") : [];
+
+    checkboxes.forEach(cb => {
+        const category = cb.id.replace('c', '').trim();
+        cb.checked = selectedFilters.includes(category);
+    });
+}
+
+// 🚀 绑定菜单按钮事件
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".hamburger-menu").addEventListener("click", function () {
         this.classList.toggle("expanded");
