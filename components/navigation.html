@@ -1,5 +1,5 @@
 <nav class="navigation">
-    <h1><a id="home-link" href="#">Valia Liu</a></h1>
+    <h1><a href="index.html">Valia Liu</a></h1>
     <hr>
     <div class="category">
         <label><input type="checkbox" id="brandingc"> Branding</label>
@@ -16,7 +16,7 @@
     </div>
     <hr>
     <h1>
-        <a id="about-link" href="#">About</a><br>
+        <a href="about.html">About</a>
         <a href="mailto:valialiuwork@gmail.com">Email↗</a>
     </h1>
 
@@ -24,15 +24,3 @@
         © Valia Liu 2025
     </footer>
 </nav>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let basePath = window.location.pathname.includes('/cocoon1.0/') ? "/cocoon1.0/" : "/";
-        
-        // ✅ 让 title 正确跳转到首页
-        document.getElementById("home-link").setAttribute("href", basePath + "index.html");
-
-        // ✅ 让 "About" 正确跳转到 About 页面
-        document.getElementById("about-link").setAttribute("href", basePath + "about.html");
-    });
-</script>
