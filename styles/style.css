@@ -396,6 +396,7 @@ hr {
         border: none;
         color: var(--main-color);
         margin-top: -4px;
+        padding: 0;
     }
 
     .container, .about-container { 
