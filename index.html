@@ -11,8 +11,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-    <base href="/cocoon1.0/">
 </head>
 
 <body>
@@ -38,25 +36,12 @@
       </main>
     </div>
   
-    <script>
-        // 🔍 自动检测 GitHub Pages 路径
-        let basePath = window.location.pathname.includes('/cocoon1.0/') ? "/cocoon1.0/" : "/";
-        
-        // 🛠 确保 <base> 标签适配环境
-        document.write(`<base href="${basePath}">`);
-    </script>
     
-    <!-- ✅ jQuery 和 GSAP -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     
     <script>
-        $(document).ready(function(){
-            // 🔄 动态加载 navigation.html
-            $("#navigation").load(basePath + "components/navigation.html", function(){
-                bindNavigationEvents();
-            });
-        });
+        $("#navigation").load("components/navigation.html", bindNavigationEvents);
     </script>
     
     <!-- ✅ 其他脚本 -->
