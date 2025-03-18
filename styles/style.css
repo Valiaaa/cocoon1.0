@@ -113,14 +113,17 @@ hr {
 }
 
 .category input[type="checkbox"] {
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 2px solid var(--main-color);
-  cursor: var(--pointer-cursor);
-  vertical-align: middle;
-  position: relative;
-}
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--main-color);
+    cursor: var(--pointer-cursor);
+    vertical-align: middle;
+    position: relative;
+}  
 
 .category label {
     cursor: var(--pointer-cursor);
