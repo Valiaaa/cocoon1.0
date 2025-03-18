@@ -10,15 +10,12 @@ function bindNavigationEvents() {
             const selectedCategories = Array.from(checkboxes)
                 .filter(cb => cb.checked)
                 .map(cb => cb.id.replace('c', '').trim());
-
-            if (selectedCategories.length === 0) {
-                console.log("🚀 No filters selected, returning to home.");
-                window.location.href = basePath + "../index.html";
-            } else {
-                console.log("🚀 Filters selected:", selectedCategories);
-                window.location.href = basePath + "../filter.html?filter=" + selectedCategories.join(",");
-            }
-        });
+        
+            const newURL = selectedCategories.length === 0 ? "../index.html" : `../filter.html?filter=${selectedCategories.join(",")}`;
+        
+            history.pushState({}, "", newURL);  // ✅ 更新 URL，不刷新页面
+            renderFilteredProjects();  // ✅ 直接重新加载项目数据
+        });        
     });
 
     if (allButton) {
