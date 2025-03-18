@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("navigation").classList.toggle("expanded");
         });
     }
-
-    document.addEventListener("click", function(e) {
+    
+    document.addEventListener("touchstart", function(e) {
         const nav = document.getElementById("navigation");
         const hamburgerMenu = document.querySelector(".hamburger-menu");
     
@@ -37,12 +37,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const clickHamburger = hamburgerMenu.contains(e.target);
     
             if (!clickInsideNav && !clickHamburger) {
-                // 如果点击了导航之外的区域，自动关闭菜单
                 nav.classList.remove("expanded");
                 hamburgerMenu.classList.remove("expanded");
             }
         }
-    });
+    }, {passive: true}); // 添加passive提升性能与稳定性    
 });
 
 // 🚩 3. 合并后的导航栏交互事件绑定
@@ -73,20 +72,21 @@ function bindNavigationEvents() {
 
     // "All" 按钮点击事件（自动跳转或筛选）
     if (allButton) {
-        allButton.addEventListener("click", function () {
+        allButton.addEventListener("click", function (e) {
+            e.preventDefault(); // 阻止默认行为，避免潜在的Safari异常
             checkboxes.forEach(cb => cb.checked = true);
-            
+    
             if (currentPage === 'filter.html') {
                 applyFilter();
             } else {
-                // 跳转到filter页面，并附带所有分类
-                const allCategories = Array.from(checkboxes)
-                    .map(cb => cb.id.replace('c', '').trim());
-
-                window.location.href = basePath + "../filter.html?filter=" + allCategories.join(",");
+                const allCategories = Array.from(checkboxes).map(cb => cb.id.replace('c', '').trim());
+                // 稍作延迟，确保事件顺利触发
+                setTimeout(() => {
+                    window.location.href = basePath + "../filter.html?filter=" + allCategories.join(",");
+                }, 50); 
             }
         });
-    }
+    }    
 
     // "Clear" 按钮跳回首页
     if (clearButton) {
