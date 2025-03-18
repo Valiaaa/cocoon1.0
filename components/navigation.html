@@ -29,8 +29,10 @@
     document.addEventListener("DOMContentLoaded", function () {
         let basePath = window.location.pathname.includes('/cocoon1.0/') ? "/cocoon1.0/" : "/";
         
-        // 设置导航链接
-        document.getElementById("home-link").href = basePath + "index.html";
-        document.getElementById("about-link").href = basePath + "about.html";
+        // ✅ 让 title 正确跳转到首页
+        document.getElementById("home-link").setAttribute("href", basePath + "index.html");
+
+        // ✅ 让 "About" 正确跳转到 About 页面
+        document.getElementById("about-link").setAttribute("href", basePath + "about.html");
     });
 </script>
