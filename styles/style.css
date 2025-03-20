@@ -2,8 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
 
 :root {
-  --main-color: cornflowerblue;
-  --bg-color: white;
+  --main-color: #2F2516;
+  --bg-color: #5777B5;
+  --deco-color: #cccccc;
   --gap: 24px;
   --body-padding: 16px;
   --font-family-main: 'Inter', sans-serif;
