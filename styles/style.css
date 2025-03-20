@@ -102,6 +102,38 @@ hr {
     opacity: 0.8;
 }
 
+.media-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+  }
+  
+  .video-square,
+  .image-square,
+  .vimeo-container.with-bg {
+    width: 100%;
+    overflow: hidden;
+    background-color: #0d0d0d;
+  }
+  
+  .video-square,
+  .image-square {
+    aspect-ratio: 1 / 1;
+  }
+  
+  .video-square iframe,
+  .image-square img,
+  .vimeo-container.with-bg iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .vimeo-container.with-bg iframe {
+    aspect-ratio: 16 / 9;
+    display: block;
+  }  
+  
 
 
 

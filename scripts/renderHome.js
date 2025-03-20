@@ -14,18 +14,33 @@ document.addEventListener('DOMContentLoaded', function(){
         const projectCover1 = `archive/${folderName}/cover1.jpg`;
         const projectCover2 = `archive/${folderName}/cover2.jpg`;
 
-        let mediaContent = project.video
-          ? `
-            <div class="vimeo-container">
-              <iframe src="${project.video}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="${project.title}"></iframe>
+        let mediaContent;
+
+        if (project.video && project.cover) {
+          mediaContent = `
+            <div class="media-grid">
+              <div class="image-square">
+                <a href="${projectLink}"><img src="archive/${folderName}/${project.cover}" alt="${project.title}"></a>
+              </div>
+              <div class="video-square">
+                <iframe src="${project.video}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="${project.title}"></iframe>
+              </div>
             </div>
-            `
-          : `
+          `;
+        } else if (project.video) {
+          mediaContent = `
+            <div class="vimeo-container ${project.bg ? 'with-bg' : ''}">
+              <iframe src="${project.video}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="${project.title}"></iframe>
+            </div>
+          `;
+        } else {
+          mediaContent = `
             <div class="image-group">
               <a href="${projectLink}"><img src="${projectCover1}" alt="${project.title} - 1"></a>
               <a href="${projectLink}"><img src="${projectCover2}" alt="${project.title} - 2"></a>
             </div>
-            `;
+          `;
+        }        
 
         const html = `
         <div class="featured-project">
