@@ -148,7 +148,7 @@ hr {
 
 .nav-footer {
     position: absolute;
-    bottom: 28px;
+    bottom: var(--body-padding);
     font-size: 11px;
     color: var(--main-color);
     opacity: 0.8;
@@ -516,7 +516,7 @@ hr {
 
     #navigation {
         position: fixed;
-        z-index: 5;
+        z-index: 1000;
         width: 76%;
         height: 100vh;
         background: var(--gradient);
@@ -546,6 +546,7 @@ hr {
     .navigation {
         width: calc(76% - var(--body-padding));
         padding-left: var(--body-padding);
+        padding-top: var(--body-padding);
     }
 
     .content {
