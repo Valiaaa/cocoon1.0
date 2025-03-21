@@ -24,7 +24,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font-family-main);
+  font-family: var(--font-family-main), times, serif;
   cursor: url('/assets/icons/default.cur'), auto;
   padding-bottom: env(safe-area-inset-bottom);
   position: relative;
@@ -34,7 +34,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #4D6FAC;
+  background-color: #4C6CA9;
   box-sizing: border-box;
   color: var(--main-color);
   padding-bottom: env(safe-area-inset-bottom);
@@ -88,7 +88,7 @@ a {
     width: fit-content;
 }
 
-h1 {
+.title {
   font-size: var(--big-font);
   line-height: 120%;
   -webkit-text-stroke: 1.2px;
@@ -269,7 +269,9 @@ hr {
     align-items: center;
     position: relative;
     margin-bottom: calc(var(--body-padding) * 2);
+    padding-bottom: var(--body-padding);
     flex-wrap: nowrap;
+    align-items: flex-start;
     border-bottom: var(--border-width) solid var(--main-color);
 }
 
@@ -535,7 +537,7 @@ hr {
         padding-top:62px;
     }
 
-    h1 {
+    .title {
         font-size: 6vw;
     }
 
@@ -549,7 +551,7 @@ hr {
     }
 
     .project-info {
-        padding-top: calc(var(--body-padding)* 1.6);
+        padding-top: 1px;
     }
 
     .individual-container {
