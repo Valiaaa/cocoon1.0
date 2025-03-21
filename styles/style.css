@@ -270,6 +270,7 @@ hr {
     position: relative;
     margin-bottom: calc(var(--body-padding) * 2);
     flex-wrap: nowrap;
+    border-bottom: var(--border-width) solid var(--main-color);
 }
 
 .vimeo-container {
@@ -320,7 +321,6 @@ hr {
     padding-top: calc(var(--body-padding) * 2);
     color: var(--main-color);
     font-family: var(--font-family-main);
-    border-bottom: var(--border-width) solid var(--main-color);
 }
   
 .project-info h2, .tag {
