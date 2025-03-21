@@ -34,7 +34,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #4A69A5;
+  background-color: #4869A8;
   box-sizing: border-box;
   color: var(--main-color);
   padding-bottom: env(safe-area-inset-bottom);
@@ -498,15 +498,16 @@ hr {
         position: fixed;
         z-index: 5;
         width: 76%;
-        height: calc(100vh - var(--body-padding));
+        height: 100vh;
         background: var(--gradient);
         border-right: var(--border-width) solid var(--main-color);
         left: -80%;
         transition: 0.4s;
+        padding-left: var(--body-padding);
     }
 
     .expanded{
-        left: var(--body-padding) !important;
+        left: 0 !important;
         transition: 0.4s;
     }
 
