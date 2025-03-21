@@ -20,14 +20,23 @@
   --big-font: 2.2vw;
 }
 
-html, body {
+html {
   margin: 0;
   padding: 0;
-  background-color: #566DA1;
   box-sizing: border-box;
   font-family: var(--font-family-main);
-  color: var(--main-color);
   cursor: url('/assets/icons/default.cur'), auto;
+  padding-bottom: env(safe-area-inset-bottom);
+  position: relative;
+  z-index: -1000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #526EA5;
+  box-sizing: border-box;
+  color: var(--main-color);
   padding-bottom: env(safe-area-inset-bottom);
   position: relative;
   z-index: -1000;
