@@ -18,26 +18,32 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if (project.video && project.cover) {
           mediaContent = `
-            <div class="media-grid">
-              <div class="image-square">
-                <a href="${projectLink}"><img src="archive/${folderName}/${project.cover}" alt="${project.title}"></a>
-              </div>
-              <div class="video-square">
-                <iframe src="${project.video}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="${project.title}"></iframe>
+            <div class="media-box">
+              <div class="media-grid">
+                <div class="image-square">
+                  <a href="${projectLink}"><img src="archive/${folderName}/${project.cover}" alt="${project.title}"></a>
+                </div>
+                <div class="video-square">
+                  <iframe src="${project.video}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="${project.title}"></iframe>
+                </div>
               </div>
             </div>
           `;
         } else if (project.video) {
           mediaContent = `
-            <div class="vimeo-container ${project.bg ? 'with-bg' : ''}">
-              <iframe src="${project.video}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="${project.title}"></iframe>
+            <div class="media-box">
+              <div class="vimeo-container ${project.bg ? 'with-bg' : ''}">
+                <iframe src="${project.video}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen title="${project.title}"></iframe>
+              </div>
             </div>
           `;
         } else {
           mediaContent = `
-            <div class="image-group">
-              <a href="${projectLink}"><img src="${projectCover1}" alt="${project.title} - 1"></a>
-              <a href="${projectLink}"><img src="${projectCover2}" alt="${project.title} - 2"></a>
+            <div class="media-box">
+              <div class="image-group">
+                <a href="${projectLink}"><img src="${projectCover1}" alt="${project.title} - 1"></a>
+                <a href="${projectLink}"><img src="${projectCover2}" alt="${project.title} - 2"></a>
+              </div>
             </div>
           `;
         }        
