@@ -114,11 +114,13 @@ p {
 }
 
 .no-emoji-arrow {
-  font-family: "times new", Arial, sans-serif;
-  font-style: normal;
+  font-family: "Helvetica Neue", "Times New Roman", Arial, sans-serif;
   font-weight: 300;
+  font-style: normal;
+  font-variant: normal;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
+  line-height: 1;
 }
 
 
