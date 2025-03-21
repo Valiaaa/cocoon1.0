@@ -543,7 +543,7 @@ hr {
     }
 
     .project-info h2, .tag {
-        font-size: 10px;
+        font-size: 11px;
         margin-bottom: calc(var(--body-padding)* 2);
         margin-top: 2px;
     }
