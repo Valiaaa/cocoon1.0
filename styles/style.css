@@ -113,6 +113,14 @@ p {
     display: none;
 }
 
+.no-emoji-arrow {
+  font-family: "times new", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+}
+
 
 
 
