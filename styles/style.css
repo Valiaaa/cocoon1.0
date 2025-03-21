@@ -568,7 +568,7 @@ hr {
     }
 
     .project-info {
-        padding-top: 1px;
+        padding-top: 0;
         width: 50vw;
         margin-right: var(--gap);
     }
