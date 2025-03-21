@@ -23,7 +23,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--bg-color);
+  background-color: var(--bg-color);
   box-sizing: border-box;
   font-family: var(--font-family-main);
   color: var(--main-color);
