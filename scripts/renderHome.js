@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 ${mediaContent}
             </div>
             <div class="project-info">
-                <a href="${projectLink}"><h1>${project.title}</h1></a>
+                <a href="${projectLink}"><h1 class="title">${project.title}</h1></a>
                 <a href="${projectLink}"><h2>${project.medium || ''}</h2></a>
             </div>
         </div>
