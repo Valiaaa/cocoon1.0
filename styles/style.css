@@ -476,6 +476,10 @@ hr {
     display: none;
 }
 
+.mobile-title {
+  margin-top: 4px;
+}
+
 
 
 
@@ -509,7 +513,7 @@ hr {
         background: transparent;
         border: none;
         color: var(--main-color);
-        margin-top: -10px;
+        margin-top: -8px;
         padding: 0;
     }
 
