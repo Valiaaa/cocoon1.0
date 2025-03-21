@@ -34,7 +34,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #4B6CAA;
+  background-color: #4D6FAC;
   box-sizing: border-box;
   color: var(--main-color);
   padding-bottom: env(safe-area-inset-bottom);
@@ -334,6 +334,7 @@ hr {
     margin: 0;
     margin-bottom:  calc(var(--body-padding) * 3);
     width: fit-content;
+    text-transform: capitalize;
 }
 
 
@@ -543,7 +544,6 @@ hr {
     }
 
     .project-info h2, .tag {
-        font-size: 11px;
         margin-bottom: calc(var(--body-padding)* 2);
         margin-top: 2px;
     }
