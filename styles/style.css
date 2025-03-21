@@ -325,7 +325,7 @@ hr {
   
 .project-info h2, .tag {
     font-family: var(--font-family-secondary);
-    font-size: 7.5px;
+    font-size: 12px;
     font-weight: 400;
     padding: 0px 10px;
     border-radius: 20px;
@@ -503,7 +503,6 @@ hr {
         border-right: var(--border-width) solid var(--main-color);
         left: -80%;
         transition: 0.4s;
-        padding-left: var(--body-padding);
     }
 
     .expanded{
@@ -526,6 +525,7 @@ hr {
 
     .navigation {
         width: calc(76% - var(--body-padding));
+        padding-left: var(--body-padding);
     }
 
     .content {
@@ -542,8 +542,8 @@ hr {
         font-size: 14px;
     }
 
-    .project-info h2 {
-        font-size: 12px;
+    .project-info h2, .tag {
+        font-size: 10px;
         margin-bottom: calc(var(--body-padding)* 2);
         margin-top: 2px;
     }
