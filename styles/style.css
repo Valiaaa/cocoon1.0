@@ -34,7 +34,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #4C6CA9;
+  background-color: #4F6FAB;
   box-sizing: border-box;
   color: var(--main-color);
   padding-bottom: env(safe-area-inset-bottom);
