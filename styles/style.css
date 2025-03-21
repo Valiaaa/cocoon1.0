@@ -34,7 +34,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background-color: #5170A9;
+  background-color: #506EA5;
   box-sizing: border-box;
   color: var(--main-color);
   padding-bottom: env(safe-area-inset-bottom);
@@ -502,11 +502,11 @@ hr {
     }
 
     .hamburger-menu {
-        font-size: 25px;
+        font-size: 30px;
         background: transparent;
         border: none;
         color: var(--main-color);
-        margin-top: -4px;
+        margin-top: -10px;
         padding: 0;
     }
 
